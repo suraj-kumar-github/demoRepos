@@ -5,5 +5,5 @@ RUN mvn install
 
 FROM openjdk:8-jre-alpine
 WORKDIR /demo
-COPY --from=1 /demo/target/demo-0.0.1-SNAPSHOT.war /app 
+COPY --from=0 /demo/target/demo-0.0.1-SNAPSHOT.war /app 
 CMD ["java -war demo-0.0.1-SNAPSHOT.war"] 
