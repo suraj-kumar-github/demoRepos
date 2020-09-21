@@ -3,8 +3,8 @@ pipeline {
     stages { 
         stage('Build') { 
             steps { 
-               sh '''cd demo
-               mvn clean install
+               sh '''
+               docker build .
                '''
             }
         }
