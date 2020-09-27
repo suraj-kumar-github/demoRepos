@@ -12,6 +12,7 @@ pipeline {
          stage('Compile') { 
             steps { 
                sh '''
+               cd demo
                mvn compile
                '''
             }
@@ -19,6 +20,7 @@ pipeline {
         stage('Test') { 
             steps { 
                sh '''
+               cd demo
                mvn test
                '''
             }
@@ -26,6 +28,7 @@ pipeline {
         stage('build') { 
             steps { 
                sh '''
+               cd demo
                mvn install
                '''
             }
