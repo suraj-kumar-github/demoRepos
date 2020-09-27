@@ -25,7 +25,7 @@ pipeline {
                '''
             }
         }
-        stage('build') { 
+        stage('Install') { 
             steps { 
                sh '''
                cd demo
