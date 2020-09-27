@@ -8,5 +8,13 @@ pipeline {
                '''
             }
         }
+         stage('Test') { 
+            steps { 
+               sh '''
+               cd demo
+               mvn test
+               '''
+            }
+        }
     }
 }
