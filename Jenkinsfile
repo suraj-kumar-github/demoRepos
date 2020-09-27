@@ -1,18 +1,32 @@
 pipeline { 
     agent any  
     stages { 
-        stage('Build') { 
+        stage('validate') { 
             steps { 
-               sh '''
-               docker build .
+               sh '''   
+               cd demo
+               mvn validate
                '''
             }
         }
-         stage('Test') { 
+         stage('Compile') { 
             steps { 
                sh '''
-               cd demo
+               mvn compile
+               '''
+            }
+        }
+        stage('Test') { 
+            steps { 
+               sh '''
                mvn test
+               '''
+            }
+        }
+        stage('build') { 
+            steps { 
+               sh '''
+               mvn install
                '''
             }
         }
