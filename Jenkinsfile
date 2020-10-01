@@ -1,14 +1,6 @@
 pipeline { 
     agent any  
-    stages { 
-        stage('validate') { 
-            steps { 
-               sh '''   
-               cd demo
-               mvn validate
-               '''
-            }
-        }
+    stages {
          stage('Compile') { 
             steps { 
                sh '''
@@ -29,12 +21,12 @@ pipeline {
             agent any
             steps {
               withSonarQubeEnv('sonarkube') {
-                  sh 'cd demo'
-                sh 'mvn clean package sonar:sonar'
+                  sh '''cd demo
+                mvn clean package sonar:sonar'''
               }
             }
           }
-        stage('Install') { 
+        stage('build') { 
             steps { 
                sh '''
                cd demo
