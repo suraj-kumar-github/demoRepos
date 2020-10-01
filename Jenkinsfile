@@ -25,6 +25,15 @@ pipeline {
                '''
             }
         }
+        stage("build & SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('sonarkube') {
+                  sh 'cd demo'
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
         stage('Install') { 
             steps { 
                sh '''
