@@ -8,15 +8,7 @@ pipeline {
                mvn compile
                '''
             }
-        }
-        stage('Test') { 
-            steps { 
-               sh '''
-               cd demo
-               mvn test
-               '''
-            }
-        }
+         }
         stage("build & SonarQube analysis") {
             agent any
             steps {
