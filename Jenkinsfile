@@ -10,9 +10,8 @@ pipeline {
             }
          }
         stage("build & SonarQube analysis") {
-            agent any
             steps {
-              withSonarQubeEnv('sonarkube') {
+              withSonarQubeEnv('project-1') {
                   sh '''cd demo
                 mvn clean package sonar:sonar'''
               }
