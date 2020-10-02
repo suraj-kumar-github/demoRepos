@@ -9,14 +9,7 @@ pipeline {
                '''
             }
          }
-        stage("build & SonarQube analysis") {
-            steps {
-              withSonarQubeEnv('project-1') {
-                  sh '''cd demo
-                mvn clean package sonar:sonar'''
-              }
-            }
-          }
+       
         stage('build') { 
             steps { 
                sh '''
