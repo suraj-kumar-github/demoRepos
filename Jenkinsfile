@@ -3,7 +3,7 @@ pipeline {
     stages {
          stage('Compile') { 
             steps { 
-               sh '''
+               bat '''
                cd demo
                mvn compile
                '''
@@ -12,7 +12,7 @@ pipeline {
        
         stage('build') { 
             steps { 
-               sh '''
+               bat '''
                cd demo
                mvn install
                '''
